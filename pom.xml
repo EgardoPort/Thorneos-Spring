@@ -4,7 +4,6 @@
   <groupId>com.thorneos</groupId>
   <artifactId>SpringHibernate2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
   
    <dependencies>
    		<!-- Spring -->
@@ -61,7 +60,12 @@
 	   <version>1.1.0.Final</version>
 	  </dependency>
 
- </dependencies>
+	  <dependency>
+	  	<groupId>mysql</groupId>
+	  	<artifactId>mysql-connector-java</artifactId>
+	  	<version>5.1.47</version>
+	  </dependency>
+   </dependencies>
 
  <build>
   <pluginManagement>
@@ -78,4 +82,9 @@
    </plugins>
   </pluginManagement>
  </build>
+ <packaging>war</packaging>
+ <properties>
+ 	<maven.compiler.target>1.8</maven.compiler.target>
+ 	<maven.compiler.source>1.8</maven.compiler.source>
+ </properties>
 </project>
