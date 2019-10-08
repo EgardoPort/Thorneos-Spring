@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -12,9 +11,9 @@
 <body>
 	<br>
 	<spring:url value="/persona/add" var="addUrl"></spring:url>
-	<a href="${adUrl}">Agregar</a>
+	<a href="${addUrl}">Agregar</a>
 	<hr>
-	<table>
+	<table border="1">
 		<tr>
 			<th>Código</th>
 			<th>Nombre</th>
@@ -37,14 +36,14 @@
 				<td>${per.fechaNacimiento}</td>
 				<td>${per.direccion}</td>
 				<td>${per.usuario}</td>
-				<td>${per.tipo_Usuario}</td>
+				<td>${per.tipoUsuario}</td>
 				<td>
 					<spring:url value="/persona/update/${per.id}" var="updateUrl"></spring:url>
 					<a href="${updateUrl}">Actualizar</a>
 				</td>
 				<td>
 					<spring:url value="/persona/delete/${per.id}" var="deleteUrl"></spring:url>
-					<a href="${deleteUrl}"></a>
+					<a href="${deleteUrl}">Eliminar</a>
 				</td>
 		</tr>
 		</c:forEach>

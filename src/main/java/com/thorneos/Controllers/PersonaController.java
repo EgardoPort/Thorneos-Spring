@@ -15,6 +15,7 @@ import com.thorneos.services.PersonaService;
 
 @Controller
 @RequestMapping(value = "/persona")
+
 public class PersonaController {
 	
 	@Autowired
@@ -28,9 +29,9 @@ public class PersonaController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/update{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
 	public ModelAndView update(@PathVariable("id") int id) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView("persona/form");
 		Persona per = perService.obtenerPorId(id);
 		mav.addObject("persona", per);
 		return mav;
@@ -38,21 +39,21 @@ public class PersonaController {
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView add() {
-		ModelAndView mav = new ModelAndView("Persona/form");
+		ModelAndView mav = new ModelAndView("persona/form");
 		Persona per = new Persona();
-		mav.addObject("persona",per);
+		mav.addObject("persona", per);
 		return mav;
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("persona") Persona per) {
+	public ModelAndView save(@ModelAttribute("persona") Persona per){
 		perService.guardar_actualizar(per);
-		return new ModelAndView("redirect:/Persona/list");
+		return new ModelAndView("redirect:/persona/list");
 	}
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
 	public ModelAndView delete(@PathVariable("id") int id) {
 		perService.eliminar(id);
-		return new ModelAndView("redirect:/Persona/list");
+		return new ModelAndView("redirect:/persona/list");
 	}
 }
