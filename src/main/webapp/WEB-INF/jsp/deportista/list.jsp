@@ -30,7 +30,7 @@
 				<td>${dep.fechaNacimiento}</td>
 				<td>${dep.peso}</td>
 				<td>
-					<spring:url value="/deportista/update/${dep.id }" var="updateURL" /> 
+					<spring:url value="/deportista/update/${dep.id }" var="updateURL"/> 
 					<a href="${updateURL }">Actualizar</a>
 				</td>
 				<td>

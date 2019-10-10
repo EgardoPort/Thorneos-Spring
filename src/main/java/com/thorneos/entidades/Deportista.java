@@ -25,7 +25,7 @@ public class Deportista {
 	private String fechaNacimiento;
 	
 	@Column(name = "peso")
-	private double idDisciplina;
+	private double peso;
 
 	public int getId() {
 		return id;
@@ -59,13 +59,12 @@ public class Deportista {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public double getIdDisciplina() {
-		return idDisciplina;
+	public double getPeso() {
+		return peso;
 	}
 
-	public void setIdDisciplina(double idDisciplina) {
-		this.idDisciplina = idDisciplina;
+	public void setPeso(double peso) {
+		this.peso = peso;
 	}
-	
 	
 }
