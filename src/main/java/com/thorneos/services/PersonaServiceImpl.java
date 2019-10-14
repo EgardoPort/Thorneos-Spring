@@ -35,4 +35,9 @@ public class PersonaServiceImpl implements PersonaService{
 	public void eliminar(int id) {
 		perDAO.eliminar(id);	
 	}
+	
+	public Persona loginPersona(Persona per)
+	{
+		return perDAO.loginPersona(per);
+	}
 }

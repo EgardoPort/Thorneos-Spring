@@ -10,4 +10,5 @@ public interface PersonaService {
 	public void guardar_actualizar(Persona per);
 	public Persona obtenerPorId(int id);
 	public void eliminar(int id);
+	public Persona loginPersona(Persona per);
 }

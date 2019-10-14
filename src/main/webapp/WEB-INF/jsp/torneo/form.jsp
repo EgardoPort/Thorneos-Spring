@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+	pageEncoding="ISO-8859-1" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -28,10 +29,23 @@
 				<td><form:input path="fechaFin" /></td>
 			</tr>
 			<tr>
-				<td>Fecha fin</td>
+				<td>Disciplina</td>
 				<td><form:select path="idDisciplina">
-
+					<c:forEach items="${dropDownListDis }" var="listDis">
+						<form:option value="${listDis.id }" label="${listDis.nombre }"></form:option>
+					</c:forEach>
 					</form:select></td>
+			</tr>
+			<tr>
+				<td>Encargado</td>
+				<td><form:select path="idDisciplina">
+					<c:forEach items="${dropDownListDis }" var="listDis">
+						<form:option value="${listDis.id }" label="${listDis.nombre }"></form:option>
+					</c:forEach>
+					</form:select></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit">Guardar</button></td>
 			</tr>
 		</table>
 

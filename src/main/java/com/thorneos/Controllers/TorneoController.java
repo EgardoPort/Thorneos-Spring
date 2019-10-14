@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.thorneos.entidades.Disciplina;
 import com.thorneos.entidades.Torneo;
+import com.thorneos.services.DisciplinaService;
 import com.thorneos.services.TorneoService;
 
 @Controller
@@ -19,6 +21,9 @@ public class TorneoController {
 	
 	@Autowired
 	TorneoService torneoService;
+	
+	@Autowired
+	DisciplinaService disciplinaService;
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView list()
@@ -33,7 +38,9 @@ public class TorneoController {
 	public ModelAndView add()
 	{
 		ModelAndView mav = new ModelAndView("torneo/form");
+		List<Disciplina> listadoDisciplinas = disciplinaService.listar();
 		Torneo t = new Torneo();
+		mav.addObject("dropDownListDis", listadoDisciplinas);
 		mav.addObject("torneo", t);
 		return mav;
 	}
@@ -48,7 +55,7 @@ public class TorneoController {
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("id") Torneo t)
+	public ModelAndView save(@ModelAttribute("torneo") Torneo t)
 	{
 		torneoService.guardar_actualizar(t);
 		return new ModelAndView("redirect:/torneo/list");
